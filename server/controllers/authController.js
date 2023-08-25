@@ -43,7 +43,7 @@ const login = async (req, res, next) => {
     }
 
     const match = await bcrypt.compare(password, foundUser.password);
-    console.log(match);
+    // console.log(match);
     if (match) {
       const roles = Object.values(foundUser.roles);
 
@@ -69,7 +69,7 @@ const login = async (req, res, next) => {
         process.env.REFRESH_TOKEN_SECRET,
         { expiresIn: "2d" }
       );
-      console.log(refreshToken);
+      // console.log(refreshToken);
 
       foundUser.refreshToken = refreshToken;
       const result = await foundUser.save();
@@ -124,7 +124,7 @@ const refreshToken = async (req, res) => {
         console.log("expired refresh token");
         foundUser.refreshToken = [...newRefreshTokenArray];
         const result = await foundUser.save();
-        console.log(result);
+        // console.log(result);
       }
 
       if (err || foundUser.userId == decoded.userId) return res.sendStatus(403);

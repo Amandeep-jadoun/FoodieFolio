@@ -10,6 +10,7 @@ import ROLES from "../../common/roles";
 const Header = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const token = useSelector(selectCurrentToken);
+  
 
   return (
     <header className="shadow-sm sticky top-0 backdrop-blur-sm bg-[#fffefc80] z-20">
